@@ -7,3 +7,5 @@ export default class ScrollAnimate {
         console.log("Scroll Animate Plugin");
     }
 }
+
+console.log("awd")
