@@ -1,0 +1,17 @@
+{
+  "name": "scroll-animate",
+  "version": "1.0.0",
+  "description": "Animate elements on scroll",
+  "main": "scroll-animate.js",
+  "jsnext:main": "scroll-animate.esm.js",
+  "module": "scroll-animate.esm.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kamil Nowojewski",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1"
+  }
+}
