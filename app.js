@@ -1,3 +1,5 @@
-import ScrollAnimate from "./scroll-animate/scroll-animate.esm.js";
+import ScrollAnimations from "./ScrollAnimations";
 
-new ScrollAnimate();
+document.addEventListener("DOMContentLoaded", () => {
+    new ScrollAnimations().init();
+});

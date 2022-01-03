@@ -1,0 +1,1 @@
+(()=>{"use strict";new class{constructor(){this.init()}init=()=>{console.log("Scroll Animate Plugin")}}})();

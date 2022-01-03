@@ -1,11 +1,15 @@
 export default class ScrollAnimate {
-    constructor () {
+    elements = [];
+
+    constructor(customClass = null) {
+        this.customClass = customClass;
+
         this.init();
     }
 
     init = () => {
         console.log("Scroll Animate Plugin");
     }
-}
 
-console.log("awd")
+    setElements
+}
