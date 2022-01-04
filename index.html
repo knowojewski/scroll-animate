@@ -1,46 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        .wrapper {
+            padding: 200px 20px;
+        }
+
         .element {
             display: flex;
             justify-content: center;
             align-items: center;
             width: 600px;
             min-height: 300px;
-            margin: 200px auto;
+            margin: 0 auto;
             padding: 24px;
             border: 1px solid black;
             font-size: 18px;
         }
 
-        .first { background-color: red; }
-        .second { background-color: green; }
-        .third { background-color: yellow; }
-        .fourth { background-color: purple; }
+        .element.first {
+            background-color: red;
+        }
+
+        .element.second {
+            background-color: green;
+        }
+
+        .element.third {
+            background-color: yellow;
+        }
+
+        .element.fourth {
+            background-color: purple;
+        }
     </style>
+    <link rel="stylesheet" href="./scroll-animate/dist/css/styles.css">
     <title>Document</title>
 </head>
+
 <body>
     <div class="page">
         <div class="container">
-            <div class="element first" data-sa="fade-in" data-sa-offset="0.8" data-sa-speed="1" data-sa-delay="" >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla esse non quis ducimus est neque inventore! Tenetur fuga eveniet assumenda nam reprehenderit sunt est. Alias illo possimus aspernatur vel.
+            <div class="wrapper first">
+                <div class="element first" data-sa-animation="fade-in" data-sa-offset="0.5" data-sa-speed="2"
+                    data-sa-delay="0.3" data-sa-anchor=".wrapper.first" data-sa-speed-out="1.5">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla esse non quis ducimus est neque
+                    inventore! Tenetur fuga eveniet assumenda nam reprehenderit sunt est. Alias illo possimus aspernatur
+                    vel.
+                </div>
             </div>
-            <div class="element second" data-sa="fade-in-left" >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla esse non quis ducimus est neque inventore! Tenetur fuga eveniet assumenda nam reprehenderit sunt est. Alias illo possimus aspernatur vel.
+
+            <div class="wrapper second">
+                <div class="element second">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla esse non quis ducimus est neque
+                    inventore! Tenetur fuga eveniet assumenda nam reprehenderit sunt est. Alias illo possimus aspernatur
+                    vel.
+                </div>
             </div>
-            <div class="element third">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla esse non quis ducimus est neque inventore! Tenetur fuga eveniet assumenda nam reprehenderit sunt est. Alias illo possimus aspernatur vel.
+
+            <div class="wrapper third">
+                <div class="element third" data-sa-parallax="1">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla esse non quis ducimus est neque
+                    inventore! Tenetur fuga eveniet assumenda nam reprehenderit sunt est. Alias illo possimus aspernatur
+                    vel.
+                </div>
             </div>
-            <div class="element fourth">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla esse non quis ducimus est neque inventore! Tenetur fuga eveniet assumenda nam reprehenderit sunt est. Alias illo possimus aspernatur vel.
+
+            <div class="wrapper fourth">
+                <div class="element fourth">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla esse non quis ducimus est neque
+                    inventore! Tenetur fuga eveniet assumenda nam reprehenderit sunt est. Alias illo possimus aspernatur
+                    vel.
+                </div>
             </div>
         </div>
     </div>
-    <script type="module" src="./app-bundle.js"></script>
+    <script type="module" src="./app.js"></script>
 </body>
+
 </html>
