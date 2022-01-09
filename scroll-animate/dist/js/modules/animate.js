@@ -1,156 +1,56 @@
 import { getPosition } from "../helpers/functions.js";
+import { animations } from "../helpers/animations.js";
+import { animationTypes } from "../helpers/animation-types.js";
 
 export default class Animate {
+    animation = null;
     elementPosition = null;
-    screenPositionIn = null;
-    screenPositionOut = null;
 
     constructor(element, animation, options) {
         this.element = element;
-        this.animation = animation;
-        Object.assign(this, {...options});
+        this.animationName = animation;
+        this.options = {...options};
 
-        this.init();
+        try {
+            this.init();
+        } catch(error) {
+            console.error(error);
+        }
     }
 
     init() {
+        this.setAnimation();
+        this.setAnimationType();
+
         this.scrollHandler();
+    }
+
+    setAnimation() {
+        this.animation = animations.find(item => item.slug === this.animationName);
+        if (!this.animation) throw new Error("Empty or wrong animation name.");
+    }
+
+    setAnimationType() {
+        const type = animationTypes.find(item => item.name === this.options.type);
+        if (!type) throw new Error("Wrong animation type. Avilable types: in-out, in, out.");
+
+        this.options.type = {...type};
     }
 
     scrollHandler() {
         if (this.element) {
-            this.elementPosition = this.anchor ? getPosition(this.anchor) : getPosition(this.element);
-            console.log(this.elementPosition)
-            this.screenPositionIn = window.innerHeight * this.offset;
-            console.log(this.offset)
-            this.screenPositionOut = window.innerHeight * this.offsetOut;
+            this.elementPosition = this.options.anchor ? getPosition(this.options.anchor) : getPosition(this.element);
 
-            if (this.elementPosition < this.screenPositionIn) {
-                this.animateIn();
-            } else if (this.elementPosition > this.screenPositionOut) {
-                this.animateOut();
-            }
+            this.options.type.handler({
+                elPosition: this.elementPosition,
+                element: this.element,
+                animation: this.animation,
+                options: this.options
+            });
         }
     }
 
-    animateIn = () => {
-        console.log("Animate in")
-        // if (this.delay !== 0) {
-        //     setTimeout(() => {
-
-        //         this.element.classList.remove(`${this.animationOut}`);
-        //         this.element.classList.add(`${this.animationIn}`);
-        //     }, this.delay);
-        // } else {
-        //     this.setStyle(this.startStyles, true);
-
-        //     this.element.classList.remove(`${this.animationOut}`);
-        //     this.element.classList.add(`${this.animationIn}`);
-        // }
-    }
-
-    animateOut = () => {
-        console.log("Animate out")
-        // if (this.delay !== 0) {
-        //     setTimeout(() => {
-        //         this.element.classList.remove(`${this.animationIn}`);
-        //         this.element.classList.add(`${this.animationOut}`);
-        //     }, this.delay);
-        // } else {
-        //     this.element.classList.remove(`${this.animationIn}`);
-        //     this.element.classList.add(`${this.animationOut}`);
-        // }
-    }
-}
-
-class ScrollAnimation {
-    elementPosition = null;
-    screenPositionIn = null;
-    screenPositionOut = null;
-
-    constructor({
-        element,
-        offsetIn,
-        animationIn,
-        offsetOut,
-        animationOut,
-        delay = 0,
-        container = null,
-        startStyles = null
-    }) {
-        this.element = element;
-        this.offsetIn = offsetIn;
-        this.animationIn = animationIn;
-        this.offsetOut = offsetOut;
-        this.animationOut = animationOut;
-        this.delay = delay;
-        this.container = container;
-        this.startStyles = startStyles;
-
-        this.init();
-    }
-
-    init = () => {
-        this.setStyle(this.startStyles);
-
-        setTimeout(() => {
-            this.animateOnScroll();
-        }, 100);
-    }
-
-    animateOnScroll = () => {
-        if (this.element) {
-            this.elementPosition = this.container ? this.container.getBoundingClientRect().top : this.element.getBoundingClientRect().top;
-            this.screenPositionIn = window.innerHeight * this.offsetIn;
-            this.screenPositionOut = window.innerHeight * this.offsetOut;
-
-            if (this.elementPosition < this.screenPositionIn) {
-                this.animateIn();
-            } else if (this.elementPosition > this.screenPositionOut) {
-                this.animateOut();
-            }
-        }
-    }
-
-    animateIn = () => {
-        if (this.delay !== 0) {
-            setTimeout(() => {
-                this.setStyle(this.startStyles, true);
-
-                this.element.classList.remove(`${this.animationOut}`);
-                this.element.classList.add(`${this.animationIn}`);
-            }, this.delay);
-        } else {
-            this.setStyle(this.startStyles, true);
-
-            this.element.classList.remove(`${this.animationOut}`);
-            this.element.classList.add(`${this.animationIn}`);
-        }
-    }
-
-    animateOut = () => {
-        if (this.delay !== 0) {
-            setTimeout(() => {
-                this.element.classList.remove(`${this.animationIn}`);
-                this.element.classList.add(`${this.animationOut}`);
-            }, this.delay);
-        } else {
-            this.element.classList.remove(`${this.animationIn}`);
-            this.element.classList.add(`${this.animationOut}`);
-        }
-    }
-
-    setStyle = (styles, clear = false) => {
-        if (styles) {
-            if (!clear) {
-                for (const [key, value] of Object.entries(styles)) {
-                    this.element.style[key] = value;
-                }
-            } else {
-                for (const [key, value] of Object.entries(styles)) {
-                    this.element.style[key] = null;
-                }
-            }
-        }
+    get elementClasses() {
+        return this.element?.classList;
     }
 }

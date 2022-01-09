@@ -1,8 +1,9 @@
 {
     "/dist/css/styles.css": "/dist/css/styles.css",
     "/dist/js/scroll-animate.js": "/dist/js/scroll-animate.js",
-    "/dist/js/helpers/animations.js": "/dist/js/helpers/animations.js",
     "/dist/js/modules/animate.js": "/dist/js/modules/animate.js",
     "/dist/js/modules/parallax.js": "/dist/js/modules/parallax.js",
-    "/dist/js/helpers/setOptions.js": "/dist/js/helpers/setOptions.js"
+    "/dist/js/helpers/animation-types.js": "/dist/js/helpers/animation-types.js",
+    "/dist/js/helpers/animations.js": "/dist/js/helpers/animations.js",
+    "/dist/js/helpers/functions.js": "/dist/js/helpers/functions.js"
 }

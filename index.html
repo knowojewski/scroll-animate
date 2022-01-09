@@ -37,6 +37,10 @@
         .element.fourth {
             background-color: purple;
         }
+
+        .element.fifth {
+            background-color: brown;
+        }
     </style>
     <link rel="stylesheet" href="./scroll-animate/dist/css/styles.css">
     <title>Document</title>
@@ -46,8 +50,7 @@
     <div class="page">
         <div class="container">
             <div class="wrapper first">
-                <div class="element first" data-sa-animation="fade-in" data-sa-offset="0.5" data-sa-speed="2"
-                    data-sa-delay="0.3" data-sa-anchor=".wrapper.first" data-sa-speed-out="1.5">
+                <div class="element first" data-sa-animation="fade-in" data-sa-speed="1" data-sa-delay="1">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla esse non quis ducimus est neque
                     inventore! Tenetur fuga eveniet assumenda nam reprehenderit sunt est. Alias illo possimus aspernatur
                     vel.
@@ -63,7 +66,7 @@
             </div>
 
             <div class="wrapper third">
-                <div class="element third" data-sa-parallax="1">
+                <div class="element third" data-sa-animation="fade-in-left" data-sa-offset="0.5" data-sa-offset-out="0.8" data-sa-delay-out="1">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla esse non quis ducimus est neque
                     inventore! Tenetur fuga eveniet assumenda nam reprehenderit sunt est. Alias illo possimus aspernatur
                     vel.
@@ -71,7 +74,15 @@
             </div>
 
             <div class="wrapper fourth">
-                <div class="element fourth">
+                <div class="element fourth" data-sa-animation="fade-out-left" >
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla esse non quis ducimus est neque
+                    inventore! Tenetur fuga eveniet assumenda nam reprehenderit sunt est. Alias illo possimus aspernatur
+                    vel.
+                </div>
+            </div>
+
+            <div class="wrapper fifth">
+                <div class="element fifth fade-in-start" >
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla esse non quis ducimus est neque
                     inventore! Tenetur fuga eveniet assumenda nam reprehenderit sunt est. Alias illo possimus aspernatur
                     vel.

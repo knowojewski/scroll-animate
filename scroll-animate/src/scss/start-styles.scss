@@ -1,5 +1,13 @@
-[data-sa-animation="fade-in"] {
+[data-sa-animation="fade-in"]:not([data-sa-type="reach-out"]) {
     opacity: 0;
     transition-property: opacity;
     transition-duration: 0.5s;
+
+    &.fade-in {
+        opacity: 1;
+    }
+
+    &.fade-out {
+        opacity: 0;
+    }
 }

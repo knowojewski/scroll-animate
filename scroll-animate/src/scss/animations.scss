@@ -1,3 +1,40 @@
-.fade-in {
-    opacity: 1;
+[data-sa-animation="fade-in"],
+.fade-in-start {
+    opacity: 0;
+    transition-property: opacity;
+
+    &.fade-in {
+        opacity: 1;
+    }
 }
+
+[data-sa-animation="fade-out"] {
+    opacity: 1;
+    transition-property: opacity;
+
+    &.fade-out {
+        opacity: 0;
+    }
+} 
+
+[data-sa-animation="fade-in-left"] {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition-property: opacity, transform;
+    
+    &.fade-in-left {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+[data-sa-animation="fade-out-left"] {
+    opacity: 1;
+    transform: translateX(0px);
+    transition-property: opacity, transform;
+
+    &.fade-out-left {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+} 

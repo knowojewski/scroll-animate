@@ -39,6 +39,11 @@ export default class ScrollAnimate {
 
     addAnimation(element, animation, customOptions = null) {
         const options = setAnimationOptions(element, customOptions);
+        const animate = new Animate(element, animation, {...options});
+
+        this.animationsInst.push(animate);
+
+        console.log(this.animationsInst);
     }
 
     addParallax() {
@@ -52,6 +57,8 @@ export default class ScrollAnimate {
     scrollEvent = () => {
         this.animationsInst.forEach(animation => { animation.scrollHandler(); });
         this.parallaxInst.forEach(parallax => { parallax.scrollHandler(); });
+
+        console.log(this.animationsInst)
     }
 
     restart = () => {
