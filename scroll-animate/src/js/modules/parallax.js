@@ -2,7 +2,11 @@ export default class Parallax {
     constructor(element) {
         this.element = element;
 
-        this.init();
+        try {
+            this.init();
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     init() {

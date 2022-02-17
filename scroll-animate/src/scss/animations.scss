@@ -8,7 +8,8 @@
     }
 }
 
-[data-sa-animation="fade-out"] {
+[data-sa-animation="fade-out"],
+.fade-out-start {
     opacity: 1;
     transition-property: opacity;
 
@@ -17,7 +18,8 @@
     }
 } 
 
-[data-sa-animation="fade-in-left"] {
+[data-sa-animation="fade-in-left"],
+.fade-in-left-start {
     opacity: 0;
     transform: translateX(-40px);
     transition-property: opacity, transform;
@@ -28,7 +30,8 @@
     }
 }
 
-[data-sa-animation="fade-out-left"] {
+[data-sa-animation="fade-out-left"],
+.fade-out-left-start {
     opacity: 1;
     transform: translateX(0px);
     transition-property: opacity, transform;
@@ -36,5 +39,173 @@
     &.fade-out-left {
         opacity: 0;
         transform: translateX(-40px);
+    }
+} 
+
+[data-sa-animation="fade-in-right"],
+.fade-in-right-start {
+    opacity: 0;
+    transform: translateX(40px);
+    transition-property: opacity, transform;
+    
+    &.fade-in-right {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+[data-sa-animation="fade-out-right"],
+.fade-out-right-start {
+    opacity: 1;
+    transform: translateX(0px);
+    transition-property: opacity, transform;
+
+    &.fade-out-right {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+} 
+
+[data-sa-animation="fade-in-left-long"],
+.fade-in-left-long-start {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition-property: opacity, transform;
+    
+    &.fade-in-left-long {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+[data-sa-animation="fade-out-left-long"],
+.fade-out-left-long-start {
+    opacity: 1;
+    transform: translateX(0px);
+    transition-property: opacity, transform;
+
+    &.fade-out-left-long {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+} 
+
+[data-sa-animation="fade-in-right-long"],
+.fade-in-right-long-start {
+    opacity: 0;
+    transform: translateX(100px);
+    transition-property: opacity, transform;
+    
+    &.fade-in-right-long {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+[data-sa-animation="fade-out-right-long"],
+.fade-out-right-long-start {
+    opacity: 1;
+    transform: translateX(0px);
+    transition-property: opacity, transform;
+
+    &.fade-out-right-long {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+} 
+
+[data-sa-animation="fade-in-down"],
+.fade-in-down-start {
+    opacity: 0;
+    transform: translateY(40px);
+    transition-property: opacity, transform;
+
+    &.fade-in-down {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+} 
+
+[data-sa-animation="fade-out-down"],
+.fade-out-down-start {
+    opacity: 1;
+    transform: translateY(0px);
+    transition-property: opacity, transform;
+
+    &.fade-out-down {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+}
+
+[data-sa-animation="fade-in-down-long"],
+.fade-in-down-long-start {
+    opacity: 0;
+    transform: translateY(100px);
+    transition-property: opacity, transform;
+
+    &.fade-in-down-long {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+} 
+
+[data-sa-animation="fade-out-down-long"],
+.fade-out-down-long-start {
+    opacity: 1;
+    transform: translateY(0px);
+    transition-property: opacity, transform;
+
+    &.fade-out-down-long {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+}
+
+[data-sa-animation="fade-in-top"],
+.fade-in-top-start {
+    opacity: 0;
+    transform: translateY(-40px);
+    transition-property: opacity, transform;
+
+    &.fade-in-top {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+} 
+
+[data-sa-animation="fade-out-top"],
+.fade-out-top-start {
+    opacity: 1;
+    transform: translateY(0px);
+    transition-property: opacity, transform;
+
+    &.fade-out-top {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+}
+
+[data-sa-animation="fade-in-top-long"],
+.fade-in-top-long-start {
+    opacity: 0;
+    transform: translateY(-100px);
+    transition-property: opacity, transform;
+
+    &.fade-in-top-long {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+} 
+
+[data-sa-animation="fade-out-top-long"],
+.fade-out-top-long-start {
+    opacity: 1;
+    transform: translateY(0px);
+    transition-property: opacity, transform;
+
+    &.fade-out-top-long {
+        opacity: 0;
+        transform: translateY(-100px);
     }
 } 

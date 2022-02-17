@@ -4,8 +4,8 @@ import { defaultAnimationOptions } from "./helpers/animations.js";
 import { setAnimationOptions } from "./helpers/functions.js";
 
 export default class ScrollAnimate {
-    animationsElements = document.querySelectorAll("[data-sa-animation]");
-    parallaxElements = document.querySelectorAll("[data-sa-parallax]");
+    animationsElements = [];
+    parallaxElements = [];
     animationsInst = [];
     parallaxInst = [];
 
@@ -14,10 +14,16 @@ export default class ScrollAnimate {
     }
 
     init() {
+        this.setElements();
         this.initAnimations();
         this.initParallaxes();
 
         this.startScrollAnimate();
+    }
+
+    setElements() {
+        this.animationsElements = document.querySelectorAll("[data-sa-animation]");
+        this.parallaxElements = document.querySelectorAll("[data-sa-parallax]");
     }
     
     initAnimations() {
@@ -42,8 +48,6 @@ export default class ScrollAnimate {
         const animate = new Animate(element, animation, {...options});
 
         this.animationsInst.push(animate);
-
-        console.log(this.animationsInst);
     }
 
     addParallax() {
@@ -57,17 +61,19 @@ export default class ScrollAnimate {
     scrollEvent = () => {
         this.animationsInst.forEach(animation => { animation.scrollHandler(); });
         this.parallaxInst.forEach(parallax => { parallax.scrollHandler(); });
-
-        console.log(this.animationsInst)
     }
 
     restart = () => {
         window.removeEventListener("scroll", this.scrollEvent);
+        this.animationsInst.length = 0;
+        this.parallaxInst.length = 0;
 
-        this.startScrollAnimate();
+        this.init();
     }
 
     destroy = () => {
         window.removeEventListener("scroll", this.scrollEvent);
+        this.animationsInst.length = 0;
+        this.parallaxInst.length = 0;
     }
 }

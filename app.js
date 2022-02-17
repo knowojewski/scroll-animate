@@ -5,10 +5,6 @@ class Animations {
 
     init = () => {
         const test = new ScrollAnimate();
-        test.addAnimation(this.firstEl, "fade-in", {
-            anchor: ".wrapper.fifth",
-            speed: 2
-        });
     }
 }
 
