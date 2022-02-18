@@ -71,6 +71,66 @@ const animations = [
         desc: "Fade out to long right animation.",
         slug:"fade-out-right-long",
         class: "fade-out-right-long",
+    },
+    {
+        name: "Fade in down",
+        desc: "Fade in from down animation.",
+        slug:"fade-in-down",
+        class: "fade-in-down",
+    },
+    {
+        name: "Fade out down",
+        desc: "Fade out to down animation.",
+        slug:"fade-out-down",
+        class: "fade-out-down",
+    },
+    {
+        name: "Fade in long down",
+        desc: "Fade in from long down animation.",
+        slug:"fade-in-down-long",
+        class: "fade-in-down-long",
+    },
+    {
+        name: "Fade out long down",
+        desc: "Fade out to long down animation.",
+        slug:"fade-out-down-long",
+        class: "fade-out-down-long",
+    },
+    {
+        name: "Fade in top",
+        desc: "Fade in from top animation.",
+        slug:"fade-in-top",
+        class: "fade-in-top",
+    },
+    {
+        name: "Fade out top",
+        desc: "Fade out to top animation.",
+        slug:"fade-out-top",
+        class: "fade-out-top",
+    },
+    {
+        name: "Fade in long top",
+        desc: "Fade in from long top animation.",
+        slug:"fade-in-top-long",
+        class: "fade-in-top-long",
+    },
+    {
+        name: "Fade out long top",
+        desc: "Fade out to long top animation.",
+        slug:"fade-out-top-long",
+        class: "fade-out-top-long",
+    },
+    {
+        name: "Zoom in",
+        desc: "Zoom in animation.",
+        slug:"zoom-in",
+        class: "zoom-in",
+    },
+    {
+        name: "Zoom out",
+        desc: "Zoom out animation.",
+        slug:"zoom-out",
+        class: "zoom-out",
     }
 ];
 

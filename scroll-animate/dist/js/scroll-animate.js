@@ -1,11 +1,11 @@
 import Parallax from "./modules/parallax.js";
 import Animate from "./modules/animate.js";
 import { defaultAnimationOptions } from "./helpers/animations.js";
-import { setAnimationOptions } from "./helpers/functions.js";
+import { setAnimationOptions, setParallaxOptions } from "./helpers/functions.js";
 
 export default class ScrollAnimate {
-    animationsElements = document.querySelectorAll("[data-sa-animation]");
-    parallaxElements = document.querySelectorAll("[data-sa-parallax]");
+    animationsElements = [];
+    parallaxElements = [];
     animationsInst = [];
     parallaxInst = [];
 
@@ -14,10 +14,16 @@ export default class ScrollAnimate {
     }
 
     init() {
+        this.setElements();
         this.initAnimations();
         this.initParallaxes();
 
         this.startScrollAnimate();
+    }
+
+    setElements() {
+        this.animationsElements = document.querySelectorAll("[data-sa-animation]");
+        this.parallaxElements = document.querySelectorAll("[data-sa-parallax]");
     }
     
     initAnimations() {
@@ -32,7 +38,9 @@ export default class ScrollAnimate {
     
     initParallaxes() {
         this.parallaxElements.forEach(element => {
-            const parallax = new Parallax(element);
+            const options = setParallaxOptions(element);
+
+            const parallax = new Parallax(element, {...options});
             this.parallaxInst.push(parallax);
         });
     }

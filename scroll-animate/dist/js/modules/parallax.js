@@ -1,6 +1,13 @@
+import { parallaxTypes } from "../helpers/parallaxes.js";
+
 export default class Parallax {
-    constructor(element) {
+    blockPosFromTop = null;
+    windowPosition = null;
+    parallaxTransform = null;
+
+    constructor(element, options) {
         this.element = element;
+        this.options = options;
 
         try {
             this.init();
@@ -10,46 +17,35 @@ export default class Parallax {
     }
 
     init() {
-        // console.log("-------- Parallax module ---------");
-        // console.log(this.element);
-        this.scrollHandler();
-    }
+        this.checkType();
+        this.setAnchor();
 
-    scrollHandler() {
-        // console.log("Parallax on scroll");
-    }
-}
-
-class ParallaxPlugin {
-    blockPosFromTop = null;
-    windowPosition = null;
-    parallaxTransition = null;
-
-    constructor(element, block, speed, direction, startTransition) {
-        this.element = element;
-        this.block = block;
-        this.speed = speed || 0.2;
-        this.direction = direction || 1;
-        this.startTransition = startTransition || 1;
-
-        this.init();
-    }
-
-    init = () => {
         this.updateElementPosition(true);
     }
 
-    handleScroll = () => {
-        this.updateElementPosition(false);
+    checkType() {
+        const type = parallaxTypes.find(item => item.name === this.options.type);
+        if (!type) throw new Error("Wrong parallax type. Avilable types: vertical, horizontal.");
+
+        this.options.type = {...type};
+    }
+
+    setAnchor() {
+        if (!this.options.anchor) this.options.anchor = this.element;
+    }
+
+    scrollHandler() {
+        this.updateElementPosition();
     }
 
     updateElementPosition = (transition = false) => {
-        this.blockPosFromTop = window.pageYOffset + this.block.getBoundingClientRect().top;
-        this.windowPosition = window.scrollY - this.blockPosFromTop + (window.innerHeight - this.block.offsetHeight) / 2;
-        this.parallaxTransition = this.windowPosition * this.direction * this.speed;
+        const {anchor, type, direction, speed, startTransition} = this.options;
 
-        this.element.style.transition = `transform ${transition ? this.startTransition : 0}s`;
+        this.anchorPosFromTop = window.pageYOffset + anchor.getBoundingClientRect().top;
+        this.windowPosition = window.scrollY - this.anchorPosFromTop + (window.innerHeight - this.options.anchor.offsetHeight) / 2;
+        this.parallaxTransition = this.windowPosition * direction * speed;
 
-        this.element.style.transform = `translateY(${this.parallaxTransition}px)`;
+        this.element.style.transition = `transform ${transition ? startTransition : 0}s`;
+        this.element.style.transform = `translate${type.axis}(${this.parallaxTransition}px)`;
     }
 }

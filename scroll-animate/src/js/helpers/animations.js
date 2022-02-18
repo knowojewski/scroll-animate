@@ -119,6 +119,18 @@ const animations = [
         desc: "Fade out to long top animation.",
         slug:"fade-out-top-long",
         class: "fade-out-top-long",
+    },
+    {
+        name: "Zoom in",
+        desc: "Zoom in animation.",
+        slug:"zoom-in",
+        class: "zoom-in",
+    },
+    {
+        name: "Zoom out",
+        desc: "Zoom out animation.",
+        slug:"zoom-out",
+        class: "zoom-out",
     }
 ];
 

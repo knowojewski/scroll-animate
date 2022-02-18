@@ -1,4 +1,5 @@
 import { defaultAnimationOptions } from "./animations.js";
+import { defaultParallaxOptions } from "./parallaxes.js";
 
 const setAnimationOptions = (element, customOptions = null) => {
     const elOptions = {...defaultAnimationOptions};
@@ -16,10 +17,23 @@ const setAnimationOptions = (element, customOptions = null) => {
     return elOptions;
 }
 
+const setParallaxOptions = (element, customOptions = null) => {
+    const elOptions = {...defaultParallaxOptions};
+    const anchor = element.dataset?.saAnchor || customOptions?.anchor || elOptions.anchor;
+    
+    elOptions.anchor = element.closest(anchor);
+    elOptions.type = element.dataset?.saType || customOptions?.type || elOptions.type;
+    elOptions.speed = Number(element.dataset?.saSpeed) || customOptions?.speed || elOptions.speed;
+    elOptions.startTransition = Number(element.dataset?.saStartTransition) || customOptions?.startTransition || elOptions.startTransition;
+    elOptions.direction = Number(element.dataset?.saDirection) || customOptions?.direction || elOptions.direction;
+
+    return elOptions;
+}
+
 const getPosition = (element) => {
     const position = element.getBoundingClientRect();
 
     return position;
 }
 
-export { setAnimationOptions, getPosition };
+export { setAnimationOptions, getPosition, setParallaxOptions };

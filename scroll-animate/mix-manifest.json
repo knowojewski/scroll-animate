@@ -5,5 +5,6 @@
     "/dist/js/modules/parallax.js": "/dist/js/modules/parallax.js",
     "/dist/js/helpers/animation-types.js": "/dist/js/helpers/animation-types.js",
     "/dist/js/helpers/animations.js": "/dist/js/helpers/animations.js",
-    "/dist/js/helpers/functions.js": "/dist/js/helpers/functions.js"
+    "/dist/js/helpers/functions.js": "/dist/js/helpers/functions.js",
+    "/dist/js/helpers/parallaxes.js": "/dist/js/helpers/parallaxes.js"
 }

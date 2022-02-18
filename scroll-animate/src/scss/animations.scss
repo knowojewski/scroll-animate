@@ -209,3 +209,23 @@
         transform: translateY(-100px);
     }
 } 
+
+[data-sa-animation="zoom-in"],
+.zoom-in-start {
+    transform: scale(0.9);
+    transition-property: transform;
+
+    &.zoom-in {
+        transform: scale(1);
+    }
+} 
+
+[data-sa-animation="zoom-out"],
+.zoom-out-start {
+    transform: scale(1.1);
+    transition-property: transform;
+    
+    &.zoom-out {
+        transform: scale(1);
+    }
+} 

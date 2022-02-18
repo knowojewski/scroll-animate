@@ -32,7 +32,7 @@ export default class Animate {
 
     setAnimationType() {
         const type = animationTypes.find(item => item.name === this.options.type);
-        if (!type) throw new Error("Wrong animation type. Avilable types: in-out, in, out.");
+        if (!type) throw new Error("Wrong animation type. Avilable types: reach-leave-bottom, reach-bottom.");
 
         this.options.type = {...type};
     }

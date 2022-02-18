@@ -1,7 +1,7 @@
 import Parallax from "./modules/parallax.js";
 import Animate from "./modules/animate.js";
 import { defaultAnimationOptions } from "./helpers/animations.js";
-import { setAnimationOptions } from "./helpers/functions.js";
+import { setAnimationOptions, setParallaxOptions } from "./helpers/functions.js";
 
 export default class ScrollAnimate {
     animationsElements = [];
@@ -38,7 +38,9 @@ export default class ScrollAnimate {
     
     initParallaxes() {
         this.parallaxElements.forEach(element => {
-            const parallax = new Parallax(element);
+            const options = setParallaxOptions(element);
+
+            const parallax = new Parallax(element, {...options});
             this.parallaxInst.push(parallax);
         });
     }
