@@ -1,13 +1,16 @@
 import Parallax from "./modules/parallax.js";
 import Animate from "./modules/animate.js";
+import BlocksScrolling from "./modules/blocks-scrolling.js";
 import { defaultAnimationOptions } from "./helpers/animations.js";
 import { setAnimationOptions, setParallaxOptions } from "./helpers/functions.js";
 
 export default class ScrollAnimate {
     animationsElements = [];
     parallaxElements = [];
+    blocksScrollingElements = [];
     animationsInst = [];
     parallaxInst = [];
+    blocksScrollingInst = [];
 
     constructor() {
         this.init();
@@ -17,6 +20,7 @@ export default class ScrollAnimate {
         this.setElements();
         this.initAnimations();
         this.initParallaxes();
+        this.initBlocksScrolling();
 
         this.startScrollAnimate();
     }
@@ -24,6 +28,7 @@ export default class ScrollAnimate {
     setElements() {
         this.animationsElements = document.querySelectorAll("[data-sa-animation]");
         this.parallaxElements = document.querySelectorAll("[data-sa-parallax]");
+        this.blocksScrollingElements = document.querySelectorAll("[data-sa-blocks-scrolling]");
     }
     
     initAnimations() {
@@ -42,6 +47,14 @@ export default class ScrollAnimate {
 
             const parallax = new Parallax(element, {...options});
             this.parallaxInst.push(parallax);
+        });
+    }
+
+    initBlocksScrolling() {
+        this.blocksScrollingElements.forEach(element => {
+            const scrolling = new BlocksScrolling(element);
+
+            this.blocksScrollingInst.push(scrolling);
         });
     }
 
@@ -69,6 +82,7 @@ export default class ScrollAnimate {
         window.removeEventListener("scroll", this.scrollEvent);
         this.animationsInst.length = 0;
         this.parallaxInst.length = 0;
+        this.blocksScrollingInst.length = 0;
 
         this.init();
     }
@@ -77,5 +91,6 @@ export default class ScrollAnimate {
         window.removeEventListener("scroll", this.scrollEvent);
         this.animationsInst.length = 0;
         this.parallaxInst.length = 0;
+        this.blocksScrollingInst.length = 0;
     }
 }
